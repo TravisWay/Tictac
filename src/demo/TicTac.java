@@ -42,7 +42,7 @@ public class TicTac {
 		//Error checking to see if space is already occupied by user and if so, prompts user to try again
 		for (int i = 0; i < taken.length; i++) {
 			while (taken[i].equals("" + row + col)) {
-				System.out.println("Please try another space, as that space is occupied\n");
+				System.out.println("\nPlease try another space, as that space is occupied");
 				System.out.println("\nPlayer " + Player + ": Enter the row number:");
 				row = input.nextInt() - 1;
 				System.out.println("\nPlayer " + Player + ": Enter the column number:");
