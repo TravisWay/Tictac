@@ -1,9 +1,7 @@
 package demo;
 
-import java.awt.Window;
 import java.util.Arrays;
 import java.util.Scanner;
-
 
 public class TicTac {
 	//declares and initializes variables and arrays needed throughout the program
@@ -22,7 +20,7 @@ public class TicTac {
 			}
 		}
 
-		tictac[2][2] = "x";
+		tictac[2][2] = "X";
 		//Prints off instructions for the user
 		System.out.println(
 				"TictacToe Game v1.sideways8 \n\nTo enter a position on the board please enter two numbers. \nThe first number is row you would like to be in. \nThe second number will be the column \n\nSo for the bottom right corner, you would enter 3 then the enter key then 3 again and the enter key(3=third row, 3 column) \nAnd it would look like this \n"
