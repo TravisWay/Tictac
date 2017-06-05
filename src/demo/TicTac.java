@@ -1,7 +1,9 @@
 package demo;
 
+import java.awt.Window;
 import java.util.Arrays;
 import java.util.Scanner;
+
 
 public class TicTac {
 	//declares and initializes variables and arrays needed throughout the program
@@ -9,7 +11,8 @@ public class TicTac {
 	static String[][] tictac = new String[3][3];
 	static int row, col;
 	static String[] taken = {"","","","","","","","","","",};
-
+	static boolean winner = false;
+	
 	public static void main(String[] args) {
 		//Empties the tic tac toe board
 		for (int j = 0; j < tictac.length; j++) {
@@ -23,13 +26,39 @@ public class TicTac {
 		//Prints off instructions for the user
 		System.out.println(
 				"TictacToe Game v1.sideways8 \n\nTo enter a position on the board please enter two numbers. \nThe first number is row you would like to be in. \nThe second number will be the column \n\nSo for the bottom right corner, you would enter 3 then the enter key then 3 again and the enter key(3=third row, 3 column) \nAnd it would look like this \n"
-						+ Arrays.toString(tictac[0]) + "\n" + Arrays.deepToString(tictac[1]) + "\n"
+						+ Arrays.deepToString(tictac[0]) + "\n" + Arrays.deepToString(tictac[1]) + "\n"
 						+ Arrays.deepToString(tictac[2]) +"\n");
 		tictac[2][2] = " ";
 		//For 5 rounds the program gives each player one turn
 		for (int i = 0; i < 5; i++) {
+			
 			turn("X");
+			Winner(tictac[0][0],tictac[1][1],tictac[2][2]);
+			Winner(tictac[0][0],tictac[1][0],tictac[2][0]);
+			Winner(tictac[0][0],tictac[0][1],tictac[0][2]);
+			Winner(tictac[0][1],tictac[1][1],tictac[2][1]);
+			Winner(tictac[1][0],tictac[1][1],tictac[1][2]);
+			Winner(tictac[2][0],tictac[2][1],tictac[2][2]);
+			Winner(tictac[0][2],tictac[1][1],tictac[2][0]);
+			Winner(tictac[0][2],tictac[1][2],tictac[2][2]);
+			if(winner){
+				System.out.println("X's is the winner");
+				break;
+			}
 			turn("O");
+			Winner(tictac[0][0],tictac[1][1],tictac[2][2]);
+			Winner(tictac[0][0],tictac[1][0],tictac[2][0]);
+			Winner(tictac[0][0],tictac[0][1],tictac[0][2]);
+			Winner(tictac[0][1],tictac[1][1],tictac[2][1]);
+			Winner(tictac[1][0],tictac[1][1],tictac[1][2]);
+			Winner(tictac[2][0],tictac[2][1],tictac[2][2]);
+			Winner(tictac[0][2],tictac[1][1],tictac[2][0]);
+			Winner(tictac[0][2],tictac[1][2],tictac[2][2]);
+			if(winner){
+				System.out.println("O's is the winner");
+				break;
+			}
+			
 		}
 	}
 
@@ -58,6 +87,20 @@ public class TicTac {
 		}
 		//Puts character of X or O on the board and prints the result
 		tictac[row][col] = Player;
-		System.out.println("\n" + Arrays.toString(tictac[0]) + "\n" + Arrays.deepToString(tictac[1]) + "\n"+ Arrays.deepToString(tictac[2]) + "\n");
-	}
+		System.out.println("\n" + Arrays.deepToString(tictac[0]) + "\n" + Arrays.deepToString(tictac[1]) + "\n"+ Arrays.deepToString(tictac[2]) + "\n");
+	}		
+		
+		
+	public static void Winner(String one, String two, String three){
+		
+		if((one + two + three).equals("XXX") || (one + two + three).equals("OOO") ){
+			winner = true;
+			
+			
+		}
+		
+	}	
+	
+	
 }
+
